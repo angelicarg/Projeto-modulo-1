@@ -23,8 +23,7 @@ class Quiz {
         resposta: '../assets/faixadepedestre.jpg',
       },
       {
-        pergunta:
-          'Escolha a imagem combina com a frase: Eu gosto de andar de carro!',
+        pergunta: 'Eu gosto de andar de carro!',
         alternativas: [
           '../assets/andardecarro.jpg',
           '../assets/andardeônibus.jpg',
@@ -70,6 +69,7 @@ class Quiz {
     let pergunta = document.querySelector('#pergunta');
     let respostas = document.querySelectorAll('.resposta');
     let campoName = document.querySelector('#nome');
+    let pontos = document.querySelector('#pontos');
 
     startBtn.addEventListener('click', () => {
       primeiraPagina.className = 'hide';
@@ -81,27 +81,56 @@ class Quiz {
 
       respostas.forEach((btn, i) => {
         btn.src = this.questions[this.round].alternativas[i];
+        pontos.innerText = this.life;
       });
     });
   }
 
   checkAnswer() {
     let respostas = document.querySelectorAll('.resposta');
+    let pontos = document.querySelector('#pontos');
     respostas.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        console.log(this.questions[this.round].resposta, 'console da resposta');
+        // console.log(this.questions[this.round].resposta, 'console da resposta');
         console.log(btn);
         if (btn.getAttribute('src') !== this.questions[this.round].resposta) {
           this.life--;
+          pontos.innerText = this.life;
+          this.checkStatus();
+          alert(' Você errou. Tente novamente.');
           console.log('errou');
         } else {
+          this.checkStatus();
+          this.nextQuestion();
           console.log('acertou');
         }
       });
     });
   }
 
-  nextQuestion() {}
+  nextQuestion() {
+    this.round++;
+    let pergunta = document.querySelector('#pergunta');
+    let respostas = document.querySelectorAll('.resposta');
+    pergunta.innerText = this.questions[this.round].pergunta;
+    //console.log(inputName.value);
 
-  checkStatus() {}
+    respostas.forEach((btn, i) => {
+      console.log(this.questions[this.round].alternativas[i]);
+      btn.src = this.questions[this.round].alternativas[i];
+    });
+  }
+
+  checkStatus() {
+    if (this.life === 0) {
+      console.log('Você perdeu!');
+      window.alert('Você perdeu!');
+      window.location.reload();
+    }
+    if (this.round === this.questions.length - 1) {
+      console.log(`Parabéns ${this.userName}! Você ganhou!`);
+      window.alert(`Parabéns ${this.userName}! Você ganhou!`);
+      window.location.reload();
+    }
+  }
 }
