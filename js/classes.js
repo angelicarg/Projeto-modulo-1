@@ -5,7 +5,7 @@ class Quiz {
     this.round = 0;
     this.questions = [
       {
-        pergunta: 'Qual é o carro?',
+        pergunta: 'Qual é o CARRO ?',
         alternativas: [
           '../assets/avião.jpg',
           '../assets/carro.jpg',
@@ -14,7 +14,7 @@ class Quiz {
         resposta: '../assets/carro.jpg',
       },
       {
-        pergunta: 'Escolha a faixa de pedestre:',
+        pergunta: 'Escolha a FAIXA DE PEDESTRE:',
         alternativas: [
           '../assets/sinaldetransito.jpg',
           '../assets/sinaldeparar.jpg',
@@ -23,7 +23,7 @@ class Quiz {
         resposta: '../assets/faixadepedestre.jpg',
       },
       {
-        pergunta: 'Eu gosto de andar de carro!',
+        pergunta: 'Escolha a imagem que combina: EU GOSTO DE ANDAR DE CARRO!',
         alternativas: [
           '../assets/andardecarro.jpg',
           '../assets/andardeônibus.jpg',
@@ -32,7 +32,7 @@ class Quiz {
         resposta: '../assets/andardecarro.jpg',
       },
       {
-        pergunta: 'Qual é o Avião?',
+        pergunta: 'Qual é o AVIÃO ?',
         alternativas: [
           '../assets/van.jpg',
           '../assets/trem.jpg',
@@ -41,7 +41,7 @@ class Quiz {
         resposta: '../assets/avião.jpg',
       },
       {
-        pergunta: 'Qual é o sinal de Pare?',
+        pergunta: 'Qual é o SINAL DE PARE ?',
         alternativas: [
           '../assets/sinaldetransito.jpg',
           '../assets/sinaldeparar.jpg',
@@ -50,7 +50,7 @@ class Quiz {
         resposta: '../assets/sinaldeparar.jpg',
       },
       {
-        pergunta: 'Escolha a imagem do Trem:',
+        pergunta: 'Escolha a imagem do TREM:',
         alternativas: [
           '../assets/helicóptero.jpg',
           '../assets/ônibus.jpg',
@@ -123,14 +123,25 @@ class Quiz {
 
   checkStatus() {
     if (this.life === 0) {
-      console.log('Você perdeu!');
-      window.alert('Você perdeu!');
+      console.log(`Que pena ${this.userName}, você perdeu!`);
+      window.alert(`Que pena ${this.userName}, você perdeu!`);
+      //pagFinal();
       window.location.reload();
     }
     if (this.round === this.questions.length - 1) {
       console.log(`Parabéns ${this.userName}! Você ganhou!`);
       window.alert(`Parabéns ${this.userName}! Você ganhou!`);
+      //pagFinal();
       window.location.reload();
     }
   }
 }
+
+/*pagFinal() {
+  gameBoard.className = 'hide';
+  final.classList.remove('hide');
+}
+<div id="final">
+<h1>PORTLIBRAS</h1>
+<p><span id="nome"></span>, você finalizou o jogo!</p>
+</div>*/
