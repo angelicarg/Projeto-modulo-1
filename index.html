@@ -11,17 +11,40 @@
   <body>
     <div id="primeiraPagina">
       <nav id="nav">
+        <br />
         <h1>PORTLIBRAS</h1>
         <p class="ptitulo">Aprendendo Português como L2 Brincando</p>
         <img src="./assets/libras2.png" alt="Sinal de Libras" />
       </nav>
       <section class="inicio">
         <h1>Vamos começar o Jogo?</h1>
-        <input type="text" id="name" name="name" value="Digite seu nome aqui" />
+        <input
+          type="text"
+          id="jogador"
+          name="name"
+          placeholder="Digite seu nome aqui"
+        />
         <button class="button">COMEÇAR</button>
       </section>
     </div>
+    <div id="estilo">
+      <div id="gameBoard" class="hide">
+        <p>
+          Olá, <span id="nome"></span>! Você tem
+          <span id="pontos"></span> pontos!
+        </p>
 
+        <section class="blocoPergunta">
+          <br />
+          <h1 id="pergunta">Pergunta</h1>
+          <br />
+
+          <img src="" alt="alternativa1" class="resposta" />
+          <img src="" alt="alternativa2" class="resposta" />
+          <img src="" alt="alternativa3" class="resposta" />
+        </section>
+      </div>
+    </div>
     <script src="./js/classes.js"></script>
     <script src="./js/index.js"></script>
   </body>
