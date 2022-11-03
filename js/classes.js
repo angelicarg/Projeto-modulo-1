@@ -1,4 +1,5 @@
 class Quiz {
+  //fazendo a classe que recebe os elementos importantes do jogo.
   constructor() {
     this.userName = '';
     this.life = 3;
@@ -70,6 +71,10 @@ class Quiz {
     let respostas = document.querySelectorAll('.resposta');
     let campoName = document.querySelector('#nome');
     let pontos = document.querySelector('#pontos');
+    let final = document.querySelector('.final');
+    let final1 = document.querySelector('.final1');
+
+    //conectando os elementos do html no js com querySelector.
 
     startBtn.addEventListener('click', () => {
       primeiraPagina.className = 'hide';
@@ -78,10 +83,12 @@ class Quiz {
       campoName.innerText = this.userName;
       pergunta.innerText = this.questions[this.round].pergunta;
       console.log(inputName.value);
+      //comando do click, que esconde a primeira página e coloca nome e pontos na segunda página
 
       respostas.forEach((btn, i) => {
         btn.src = this.questions[this.round].alternativas[i];
         pontos.innerText = this.life;
+        //aqui o click coloca as alternativas na nova página
       });
     });
   }
@@ -99,6 +106,8 @@ class Quiz {
           this.checkStatus();
           alert(' Você errou. Tente novamente.');
           console.log('errou');
+          const audio = new Audio('../assets/GameOver.mp3');
+          audio.play();
         } else {
           this.checkStatus();
           this.nextQuestion();
@@ -123,25 +132,44 @@ class Quiz {
 
   checkStatus() {
     if (this.life === 0) {
+      this.pagFinalDerrota();
       console.log(`Que pena ${this.userName}, você perdeu!`);
-      window.alert(`Que pena ${this.userName}, você perdeu!`);
-      //pagFinal();
-      window.location.reload();
+      //window.alert(`Que pena ${this.userName}, você perdeu!`);
+      //window.location.reload();
     }
     if (this.round === this.questions.length - 1) {
       console.log(`Parabéns ${this.userName}! Você ganhou!`);
-      window.alert(`Parabéns ${this.userName}! Você ganhou!`);
-      //pagFinal();
-      window.location.reload();
+      //window.alert(`Parabéns ${this.userName}! Você ganhou!`);
+      this.pagFinalVitoria();
+      //window.location.reload();
+      const audio1 = new audio1('../assets/Applause01.mp3');
+      audio1.play();
     }
+  }
+  pagFinalDerrota() {
+    let nome2 = document.querySelector('#nome2');
+    nome2.innerText = this.userName;
+    gameBoard.classList.remove('show');
+    gameBoard.className = 'hide';
+    final.classList.remove('hide');
+    final.className = 'show';
+    console.log('Funcionou');
+  }
+
+  pagFinalVitoria() {
+    let nome3 = document.querySelector('#nome3');
+    nome3.innerText = this.userName;
+    gameBoard.classList.remove('show');
+    gameBoard.className = 'hide';
+    final1.classList.remove('hide');
+    final1.className = 'show';
+    console.log('Funcionou');
   }
 }
 
-/*pagFinal() {
-  gameBoard.className = 'hide';
-  final.classList.remove('hide');
-}
-<div id="final">
-<h1>PORTLIBRAS</h1>
-<p><span id="nome"></span>, você finalizou o jogo!</p>
-</div>*/
+let reload = document.querySelectorAll('.reload');
+reload.forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.location.reload();
+  });
+});
