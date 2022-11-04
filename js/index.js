@@ -30,3 +30,22 @@ const game = new Quiz();
 game.startGame();
 
 game.checkAnswer();
+
+/*{
+        pergunta: './assets/helicóptero.jpg',
+        alternativas: [
+          './assets/helicoptero1.jpg',
+          './assets/carro1.jpg',
+          './assets/avião1.jpg',
+        ],
+        resposta: './assets/carro.jpg',
+      },
+      {
+        pergunta: './assets/ônibus.jpg',
+        alternativas: [
+          './assets/avião1.jpg',
+          './assets/trator1.jpg',
+          './assets/ônibus1.jpg',
+        ],
+        resposta: './assets/carro.jpg',
+      },*/

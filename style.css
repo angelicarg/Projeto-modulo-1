@@ -159,11 +159,20 @@ h2 {
   box-shadow: 3px 4px 0px 0px #1564ad;
   text-shadow: 0px 1px 0px #528ecc;
   background: linear-gradient(#79bbff, #378de5);
+  align-items: center;
 }
 
 .frase {
   display: flex;
   font-size: large;
   padding: 10px;
+  background-color: beige;
+}
+
+#nome2 {
+  background-color: beige;
+}
+
+#nome3 {
   background-color: beige;
 }

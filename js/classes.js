@@ -106,7 +106,7 @@ class Quiz {
           this.checkStatus();
           alert(' Você errou. Tente novamente.');
           console.log('errou');
-          const audio = new Audio('../assets/GameOver.mp3');
+          const audio = new Audio('./assets/GameOver.mp3');
           audio.play();
         } else {
           this.checkStatus();
@@ -142,8 +142,6 @@ class Quiz {
       //window.alert(`Parabéns ${this.userName}! Você ganhou!`);
       this.pagFinalVitoria();
       //window.location.reload();
-      const audio1 = new audio1('../assets/Applause01.mp3');
-      audio1.play();
     }
   }
   pagFinalDerrota() {
